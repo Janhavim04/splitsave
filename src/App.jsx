@@ -1,3 +1,5 @@
+// SplitSave v1.0.0 — Smart Money Management for Students
+// Built on Stellar Testnet
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
