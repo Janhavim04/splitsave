@@ -7,7 +7,8 @@ A real-world MVP dApp built on Stellar blockchain for the Green Belt (Level 5) o
 ---
 
 ## 🎥 Demo Video
-<!-- Add your demo video link here -->
+
+https://github.com/user-attachments/assets/4fe78415-2b65-48e0-b2cf-70c509e288e7
 
 ---
 
@@ -69,7 +70,8 @@ npm test
 - **Data Caching** (5 tests) — localStorage cache logic
 
 ### Test Output
-![Tests](screenshots/tests.png)
+<img width="1118" height="914" alt="Screenshot 2026-04-20 143501" src="https://github.com/user-attachments/assets/dd18edfd-ad44-4b78-add5-a56208d7dc7c" />
+
 
 ---
 
@@ -80,13 +82,15 @@ GitHub Actions runs on every push:
 - Runs all 22 tests
 - Builds the project
 
-![CI/CD](screenshots/cicd.png)
+<img width="1420" height="902" alt="Screenshot 2026-04-20 154829" src="https://github.com/user-attachments/assets/bab27f32-82ac-476b-849a-2feee754da82" />
+
 
 ---
 
 ## 📱 Mobile Responsive
 
-![Mobile](screenshots/mobile.png)
+<img width="1177" height="1022" alt="Screenshot 2026-04-20 154938" src="https://github.com/user-attachments/assets/66211065-83fa-4c7d-bf8b-83a160e5693f" />
+
 
 ---
 
