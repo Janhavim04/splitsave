@@ -51,10 +51,19 @@ export default function Navbar({ currentPage, setCurrentPage }) {
               >
                 💧 Faucet
               </a>
-              <div className="wallet-chip">
+              <div
+                className="wallet-chip"
+                onClick={() => {
+                  navigator.clipboard.writeText(walletAddress)
+                  alert('Wallet address copied!')
+                }}
+                title="Click to copy your wallet address"
+                style={{cursor: 'pointer'}}
+              >
                 <span className="wallet-dot"></span>
                 <span className="wallet-addr-text">{shortAddress(walletAddress)}</span>
                 <span className="wallet-bal">{balance} XLM</span>
+                <span style={{fontSize: '0.7rem', color: '#6366f1'}}>📋</span>
               </div>
               <button className="disconnect-btn" onClick={disconnectWallet}>
                 Disconnect
