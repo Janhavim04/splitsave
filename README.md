@@ -96,19 +96,21 @@ GitHub Actions runs on every push:
 
 ## 👥 User Feedback
 
-**Feedback Form:** https://docs.google.com/forms/d/e/1FAIpQLSeDHk2r2KZwy0tQA9i0YV7GgAfmD-RmsEPHLzp4Bu23kQRPUw/viewform
+**Feedback Form:** https://docs.google.com/forms/d/e/1FAIpQLSeDHk2r2KZwy0tQA9i0YV7GgAfmD-RmsEPHLzp4Bu23kQRPUw/viewform?usp=dialog
 
-**User Responses:** [feedback.xlsx](feedback/feedback.xlsx)
+**User Responses:** [Splitsave_feedback.xlsx](https://github.com/user-attachments/files/26975958/Splitsave_feedback.xlsx)
+
 
 ### Testnet Users
 
 | Name | Wallet Address |
 |------|---------------|
-| User 1 | <!-- add wallet address --> |
-| User 2 | <!-- add wallet address --> |
-| User 3 | <!-- add wallet address --> |
-| User 4 | <!-- add wallet address --> |
-| User 5 | <!-- add wallet address --> |
+| Janhavi lipare | GBLUMAX4IIPS54AIGD5WXRRAXISG4HLV3BE3YR3SQAD3GZSXRTVJY5GI |
+| Nayan Palande | GB23T7JFBYK7URKZCRL5ZUYPA5W7JNJ5WYIGLJNWI6Y3YAFPYHJ65UPR |
+| Poorva Mulimani | GBNOBRJ73DRVVHE4MJPDRIOVP3MZ7BHOO2ISZDMPJWDNHPCPVRZLRILT |
+| Jadhav Vaibhavi Ajay | GDBIJAOFPMGQWDUUQTJ3YFHI44MWHQHPALJQG7ZDA7D5WWEDKJYA4OHA |
+| Aditi Mhaske | GAWOCI3JKKRFYYUJGOR7I3LZM6BMFCLUBN3EXBNLRISO6XWW3YDSTHDU |
+| Gayatri Deshmukh | GBQQRG45YXIOLM7UR2W7DN2XP7SZVIDY4D5NWCUMRX7CEXJVVFGU26PB |
 
 ---
 
@@ -135,17 +137,16 @@ Transaction recorded on Stellar blockchain
 
 <!-- Fill this section after collecting feedback -->
 Based on user feedback we will:
-1. <!-- improvement 1 -->
-2. <!-- improvement 2 -->
-3. <!-- improvement 3 -->
+1. Add a "Copy Wallet Address" button
 
-**Improvement commit:** <!-- add git commit link here -->
+
+**Improvement commit:** https://github.com/Janhavim04/splitsave/commit/7e32d2972cfd6ba2154bf360054b2feffcd44d23
 
 ---
 
 ## 🔗 Links
 
 - 🌐 Live App: https://splitsave.netlify.app
-- 📝 Feedback Form: https://docs.google.com/forms/d/e/1FAIpQLSeDHk2r2KZwy0tQA9i0YV7GgAfmD-RmsEPHLzp4Bu23kQRPUw/viewform
+- 📝 Feedback Form: https://docs.google.com/forms/d/e/1FAIpQLSeDHk2r2KZwy0tQA9i0YV7GgAfmD-RmsEPHLzp4Bu23kQRPUw/viewform?usp=dialog
 - 💧 Testnet Faucet: https://friendbot.stellar.org
 - 🔍 Stellar Explorer: https://stellar.expert/explorer/testnet
