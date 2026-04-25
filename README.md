@@ -8,7 +8,7 @@ A real-world MVP dApp built on Stellar blockchain for the Green Belt (Level 5) o
 
 ## 🎥 Demo Video
 
-https://github.com/user-attachments/assets/4fe78415-2b65-48e0-b2cf-70c509e288e7
+https://github.com/user-attachments/assets/8d24322e-4894-4b21-a576-16a2f32717c5
 
 ---
 
@@ -89,8 +89,7 @@ GitHub Actions runs on every push:
 
 ## 📱 Mobile Responsive
 
-<img width="1177" height="1022" alt="Screenshot 2026-04-20 154938" src="https://github.com/user-attachments/assets/66211065-83fa-4c7d-bf8b-83a160e5693f" />
-
+<img width="1097" height="809" alt="image" src="https://github.com/user-attachments/assets/d615b4b5-5db7-48a2-9e13-969cac114a8b" />
 
 ---
 
