@@ -85,7 +85,7 @@ export default function Savings() {
       <div className="page">
         <div className="page-header">
           <div>
-            <h1 className="page-title">🐷 Savings Goals</h1>
+            <h1 className="page-title"> Savings Goals</h1>
             <p className="page-subtitle">Save for what matters to you</p>
           </div>
           {walletAddress && (
