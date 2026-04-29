@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard'
 import Groups from './pages/Groups'
 import Savings from './pages/Savings'
 import './App.css'
+import Metrics from './pages/Metrics'
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('dashboard')
@@ -15,6 +17,7 @@ function App() {
       case 'dashboard': return <Dashboard setCurrentPage={setCurrentPage} />
       case 'groups':    return <Groups />
       case 'savings':   return <Savings />
+      case 'metrics':   return <Metrics />
       default:          return <Dashboard setCurrentPage={setCurrentPage} />
     }
   }

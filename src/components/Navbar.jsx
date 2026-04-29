@@ -43,6 +43,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
     { id: 'dashboard', label: 'Home' },
     { id: 'groups',    label: 'Groups' },
     { id: 'savings',   label: 'Savings' },
+    { id: 'metrics',   label: 'Metrics' },
   ]
 
   return (
@@ -130,6 +131,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
             {item.id === 'dashboard' && '⌂'}
             {item.id === 'groups'    && '⬡'}
             {item.id === 'savings'   && '◎'}
+            {item.id === 'metrics'   && '📊'}
             <span>{item.label}</span>
           </button>
         ))}
