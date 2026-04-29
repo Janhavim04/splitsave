@@ -1,3 +1,4 @@
+import { monitor } from '../utils/monitoring'
 import { useState, useCallback } from 'react'
 import { StellarWalletsKit, WalletNetwork, FREIGHTER_ID, FreighterModule, xBullModule, HanaModule } from '@creit.tech/stellar-wallets-kit'
 import {
@@ -79,11 +80,13 @@ export function useWallet() {
         networkPassphrase: 'Test SDF Network ; September 2015',
       })
 
-      const txHash = sponsored
-        ? await submitSponsoredTx(signedTxXdr)
-        : await submitTransaction(signedTxXdr)
+      const txHash = await monitor.time('payment-tx', () =>
+  sponsored ? submitSponsoredTx(signedTxXdr) : submitTransaction(signedTxXdr)
+)
 
-      return { success: true, txHash, sponsored }
+monitor.tx('Settlement sent', { txHash, amount, sponsored })
+
+return { success: true, txHash, sponsored }
 
     } catch (err) {
       console.error('Payment failed:', err)
