@@ -1,3 +1,5 @@
+import { sanitizeInput, rateLimiter } from '../utils/security'
+import GaslessBadge from '../components/GaslessBadge'
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
 import { useWallet } from '../hooks/useWallet'
@@ -51,7 +53,7 @@ export default function Groups() {
         .map(m => ({ address: m.address.trim(), nickname: m.nickname.trim() || shortAddress(m.address) }))
     ]
 
-    createGroup(groupName.trim(), allMembers)
+    createGroup(sanitizeInput(groupName, 50), allMembers)
     setGroupName('')
     setMembers([{ address: '', nickname: '' }])
     setView('list')
@@ -65,7 +67,7 @@ export default function Groups() {
     if (expSplitAmong.length === 0) return setError('Select who to split among')
 
     addExpense(selectedGroup.id, {
-      description: expDesc.trim(),
+      description: sanitizeInput(expDesc, 100),
       amount:      parseFloat(expAmount),
       paidBy:      expPaidBy,
       splitAmong:  expSplitAmong,
@@ -97,6 +99,7 @@ export default function Groups() {
   }
 
   const handleSettle = async (debt) => {
+    if (!rateLimiter.check('settle')) return setError('Please wait before settling again')
     setError('')
     setSettlingDebt(debt)
     setTxResult(null)
@@ -335,25 +338,28 @@ export default function Groups() {
 
             {myDebts.map((debt, i) => (
               <div key={i} className="debt-card owe-debt">
-                <div className="debt-info">
-                  <span className="debt-label">You owe</span>
-                  <span className="debt-name">
-                    {getMemberName(liveGroup, debt.to)}
-                  </span>
-                  <span className="debt-amount">{debt.amount.toFixed(2)} XLM</span>
-                </div>
-                <button
-                  className="settle-btn"
-                  onClick={() => handleSettle(debt)}
-                  disabled={isSending || settlingDebt !== null}
-                >
-                  {settlingDebt?.to === debt.to ? (
-                    <><span className="spinner-sm"></span> Sending...</>
-                  ) : (
-                    '⚡ Settle'
-                  )}
-                </button>
-              </div>
+  <div className="debt-info">
+    <span className="debt-label">You owe</span>
+    <span className="debt-name">
+      {getMemberName(liveGroup, debt.to)}
+    </span>
+    <span className="debt-amount">{debt.amount.toFixed(2)} XLM</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
+    <GaslessBadge showInactive={false} />
+    <button
+      className="settle-btn"
+      onClick={() => handleSettle(debt)}
+      disabled={isSending || settlingDebt !== null}
+    >
+      {settlingDebt?.to === debt.to ? (
+        <><span className="spinner-sm"></span> Sending...</>
+      ) : (
+        '⚡ Settle'
+      )}
+    </button>
+  </div>
+</div>
             ))}
 
             {myCredits.map((credit, i) => (
