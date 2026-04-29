@@ -143,6 +143,22 @@ Based on user feedback we will:
 
 ---
 
+## 📦 Smart Contract
+
+**Contract Address:** `CC544SVOAW3FWMAOHYZZJWL24WTYCN5MOCLVUMAH5Y7BLTSZKJ5JFRHI`
+
+**View on Stellar Expert:**
+https://stellar.expert/explorer/testnet/contract/CC544SVOAW3FWMAOHYZZJWL24WTYCN5MOCLVUMAH5Y7BLTSZKJ5JFRHI
+
+**Functions:**
+- `initialize(admin)` — set up the contract
+- `create_group(creator, group_id, name)` — record a group on-chain
+- `record_settlement(from, to, amount, group_id)` — record a settlement on-chain
+- `get_group(group_id)` — fetch group info
+- `get_group_count()` — total groups created
+- `group_exists(group_id)` — check if group exists
+
+
 ## 🔗 Links
 
 - 🌐 Live App: https://splitsave.netlify.app
