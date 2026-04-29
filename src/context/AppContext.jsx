@@ -46,6 +46,37 @@ export function AppProvider({ children }) {
     localStorage.setItem('splitsave_activities', JSON.stringify(activities))
   }, [activities])
 
+  // ── Listen for wallet events from useWallet ──
+useEffect(() => {
+  const onConnected = async (e) => {
+    const { address } = e.detail
+    setWalletAddress(address)
+    // fetch balance
+    const { fetchBalance } = await import('../utils/stellar')
+    const bal = await fetchBalance(address)
+    setBalance(bal)
+  }
+
+  const onDisconnected = () => {
+    setWalletAddress(null)
+    setBalance(null)
+  }
+
+  const onError = (e) => {
+    console.error('Wallet error:', e.detail.error)
+  }
+
+  window.addEventListener('wallet:connected', onConnected)
+  window.addEventListener('wallet:disconnected', onDisconnected)
+  window.addEventListener('wallet:error', onError)
+
+  return () => {
+    window.removeEventListener('wallet:connected', onConnected)
+    window.removeEventListener('wallet:disconnected', onDisconnected)
+    window.removeEventListener('wallet:error', onError)
+  }
+}, [])
+
 
   // ── Group Functions ──
 

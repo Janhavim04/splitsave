@@ -1,122 +1,100 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { StellarWalletsKit, WalletNetwork, FREIGHTER_ID, FreighterModule, xBullModule, HanaModule } from '@creit.tech/stellar-wallets-kit'
 import {
-  StellarWalletsKit,
-  WalletNetwork,
-  FREIGHTER_ID,
-  FreighterModule,
-  xBullModule,
-  LobstrModule,
-  HanaModule,
-} from '@creit.tech/stellar-wallets-kit'
-import { fetchBalance, buildPaymentTx, submitTransaction } from '../utils/stellar'
-import { useApp } from '../context/AppContext'
+  buildSponsoredPaymentTx,
+  submitSponsoredTx,
+  buildPaymentTx,
+  submitTransaction,
+  isSponsorshipActive,
+} from '../utils/stellar'
 
-const NETWORK_PASSPHRASE = 'Test SDF Network ; September 2015'
+let kit = null
 
-// Initialize wallet kit once
-const kit = new StellarWalletsKit({
-  network: WalletNetwork.TESTNET,
-  selectedWalletId: FREIGHTER_ID,
-  modules: [
-    new FreighterModule(),
-    new xBullModule(),
-    new LobstrModule(),
-    new HanaModule(),
-  ]
-})
+const getKit = () => {
+  if (!kit) {
+    kit = new StellarWalletsKit({
+      network: WalletNetwork.TESTNET,
+      selectedWalletId: FREIGHTER_ID,
+      modules: [
+        new FreighterModule(),
+        new xBullModule(),
+        new HanaModule(),
+      ],
+    })
+  }
+  return kit
+}
 
 export function useWallet() {
-  const { setWalletAddress, setBalance } = useApp()
   const [isConnecting, setIsConnecting] = useState(false)
   const [isSending, setIsSending]       = useState(false)
-  const [error, setError]               = useState('')
 
-  // ── Connect wallet ──
-  const connectWallet = async () => {
+  const connectWallet = useCallback(async () => {
     setIsConnecting(true)
-    setError('')
-    await new Promise(r => setTimeout(r, 300))
-
     try {
-      await kit.openModal({
-        onWalletSelected: async (option) => {
-          try {
-            kit.setWallet(option.id)
-            const { address } = await kit.getAddress()
-            setWalletAddress(address)
-            const bal = await fetchBalance(address)
-            setBalance(bal)
-          } catch (err) {
-            setError('Wallet connection failed. Please try again.')
-          }
-        }
+      const walletKit = getKit()
+
+      await new Promise((resolve, reject) => {
+        walletKit.openModal({
+          onWalletSelected: async (option) => {
+            try {
+              walletKit.setWallet(option.id)
+              const { address } = await walletKit.getAddress()
+              window.dispatchEvent(new CustomEvent('wallet:connected', { detail: { address } }))
+              resolve()
+            } catch (err) {
+              reject(err)
+            }
+          },
+          onClosed: () => {
+            resolve() // user closed modal without selecting
+          },
+        })
       })
     } catch (err) {
-      setError('Could not open wallet selector.')
+      console.error('Wallet connection failed:', err)
+      window.dispatchEvent(new CustomEvent('wallet:error', { detail: { error: err.message } }))
+    } finally {
+      setIsConnecting(false)
     }
-    setIsConnecting(false)
-  }
+  }, [])
 
-  // ── Disconnect wallet ──
-  const disconnectWallet = () => {
-    setWalletAddress(null)
-    setBalance(null)
-  }
+  const disconnectWallet = useCallback(() => {
+    kit = null
+    window.dispatchEvent(new CustomEvent('wallet:disconnected'))
+  }, [])
 
-  // ── Refresh balance ──
-  const refreshBalance = async (address) => {
-    const bal = await fetchBalance(address)
-    setBalance(bal)
-    return bal
-  }
-
-  // ── Send XLM payment ──
-  const sendPayment = async (fromAddress, toAddress, amount, memo = '') => {
+  const sendPayment = useCallback(async (fromAddress, toAddress, amount, memo = '') => {
     setIsSending(true)
-    setError('')
-
     try {
-      // Build transaction
-      const tx = await buildPaymentTx(fromAddress, toAddress, amount, memo)
+      const walletKit = getKit()
+      const sponsored = isSponsorshipActive()
 
-      // Sign with wallet
-      const { signedTxXdr } = await kit.signTransaction(
-        tx.toXDR(),
-        { networkPassphrase: NETWORK_PASSPHRASE }
-      )
+      const { innerTxXdr } = sponsored
+        ? await buildSponsoredPaymentTx(fromAddress, toAddress, amount, memo)
+        : { innerTxXdr: (await buildPaymentTx(fromAddress, toAddress, amount, memo)).toXDR() }
 
-      // Submit to network
-      const txHash = await submitTransaction(signedTxXdr)
+      const { signedTxXdr } = await walletKit.signTransaction(innerTxXdr, {
+        address: fromAddress,
+        networkPassphrase: 'Test SDF Network ; September 2015',
+      })
 
-      // Refresh balance
-      await refreshBalance(fromAddress)
+      const txHash = sponsored
+        ? await submitSponsoredTx(signedTxXdr)
+        : await submitTransaction(signedTxXdr)
 
-      setIsSending(false)
-      return { success: true, txHash }
+      return { success: true, txHash, sponsored }
 
     } catch (err) {
-      console.error('Payment error:', err)
-      let message = 'Payment failed. Please try again.'
-      if (err.message?.includes('insufficient')) {
-        message = 'Insufficient balance.'
-      } else if (err.message?.includes('denied')) {
-        message = 'Transaction rejected by wallet.'
-      }
-      setError(message)
+      console.error('Payment failed:', err)
+      const userMsg = err?.message?.includes('User declined')
+        ? 'Transaction cancelled by user'
+        : err?.message || 'Transaction failed'
+      return { success: false, error: userMsg, sponsored: false }
+    } finally {
       setIsSending(false)
-      return { success: false, error: message }
     }
-  }
+  }, [])
 
-  return {
-    kit,
-    connectWallet,
-    disconnectWallet,
-    refreshBalance,
-    sendPayment,
-    isConnecting,
-    isSending,
-    error,
-    setError,
-  }
+  return { connectWallet, disconnectWallet, sendPayment, isSending, isConnecting }
 }
