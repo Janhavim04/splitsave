@@ -1,3 +1,4 @@
+import IndexerDashboard from '../components/IndexerDashboard'
 import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
 import { server } from '../utils/stellar'
@@ -151,23 +152,32 @@ export default function Metrics() {
       </div>
 
       {/* Tab Switcher */}
-      <div className="metrics-tabs">
-        <button
-          className={`metrics-tab ${tab === 'metrics' ? 'metrics-tab-active' : ''}`}
-          onClick={() => setTab('metrics')}
-        >
-          📊 Metrics
-        </button>
-        <button
-          className={`metrics-tab ${tab === 'monitoring' ? 'metrics-tab-active' : ''}`}
-          onClick={() => setTab('monitoring')}
-        >
-          🔍 Monitoring
-        </button>
-      </div>
+<div className="metrics-tabs">
+  <button
+    className={`metrics-tab ${tab === 'metrics' ? 'metrics-tab-active' : ''}`}
+    onClick={() => setTab('metrics')}
+  >
+    📊 Metrics
+  </button>
+  <button
+    className={`metrics-tab ${tab === 'monitoring' ? 'metrics-tab-active' : ''}`}
+    onClick={() => setTab('monitoring')}
+  >
+    🔍 Monitoring
+  </button>
+  <button
+    className={`metrics-tab ${tab === 'indexer' ? 'metrics-tab-active' : ''}`}
+    onClick={() => setTab('indexer')}
+  >
+    ⛓ Index
+  </button>
+</div>
 
-      {/* Monitoring Tab */}
-      {tab === 'monitoring' && <MonitoringDashboard />}
+{/* Monitoring Tab */}
+{tab === 'monitoring' && <MonitoringDashboard />}
+
+{/* Indexer Tab */}
+{tab === 'indexer' && <IndexerDashboard />}
 
       {/* Metrics Tab */}
       {tab === 'metrics' && (
