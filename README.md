@@ -102,7 +102,9 @@ Live dashboard available at **Metrics** tab in the app.
 - 7-day activity, expense, and deposit charts
 - Retention rate from savings goal deposits
 
-**Screenshot:** *(add screenshot after deploying)*
+**Screenshot:** 
+<img width="1701" height="908" alt="Screenshot 2026-04-30 164718" src="https://github.com/user-attachments/assets/2bb3f40f-f56f-47bc-8f9c-731907f69a15" />
+
 
 ---
 
@@ -119,7 +121,9 @@ Production monitoring available at **Metrics → Monitoring** tab.
 
 **Implementation:** `src/utils/monitoring.js` — initialized in `main.jsx`
 
-**Screenshot:** *(add screenshot after deploying)*
+**Screenshot:** 
+<img width="1542" height="920" alt="Screenshot 2026-04-30 164828" src="https://github.com/user-attachments/assets/155c149e-8d2e-43cb-8c54-909128b3478b" />
+
 
 ---
 
@@ -142,6 +146,7 @@ Live index available at **Metrics → Index** tab.
 ## 🔐 Security
 
 [Security Checklist](./SECURITY_CHECKLIST.md) — **30/31 checks passed**
+https://github.com/Janhavim04/splitsave/blob/main/SECURITY_CHECKLIST.md
 
 Key measures:
 - Input sanitization on all user inputs (`src/utils/security.js`)
@@ -203,9 +208,10 @@ GitHub Actions runs on every push — installs dependencies, runs all 22 tests, 
 
 **Feedback Form:** https://docs.google.com/forms/d/e/1FAIpQLSeDHk2r2KZwy0tQA9i0YV7GgAfmD-RmsEPHLzp4Bu23kQRPUw/viewform?usp=dialog
 
-**User Responses (Excel):** [Splitsave_feedback.xlsx](https://github.com/user-attachments/files/26975958/Splitsave_feedback.xlsx)
+**User Responses (Excel):** [Splitsave_feedback (2).xlsx](https://github.com/user-attachments/files/27241172/Splitsave_feedback.2.xlsx)
 
-### Verified Testnet Users (23/30)
+
+### Verified Testnet Users (31/30)
 
 | # | Name | Wallet Address |
 |---|------|---------------|
@@ -215,23 +221,31 @@ GitHub Actions runs on every push — installs dependencies, runs all 22 tests, 
 | 4 | Jadhav Vaibhavi Ajay | GDBIJAOFPMGQWDUUQTJ3YFHI44MWHQHPALJQG7ZDA7D5WWEDKJYA4OHA |
 | 5 | Aditi Mhaske | GAWOCI3JKKRFYYUJGOR7I3LZM6BMFCLUBN3EXBNLRISO6XWW3YDSTHDU |
 | 6 | Gayatri Deshmukh | GBQQRG45YXIOLM7UR2W7DN2XP7SZVIDY4D5NWCUMRX7CEXJVVFGU26PB |
-| 7 | *(add name)* | *(add wallet address)* |
-| 8 | *(add name)* | *(add wallet address)* |
-| 9 | *(add name)* | *(add wallet address)* |
-| 10 | *(add name)* | *(add wallet address)* |
-| 11 | *(add name)* | *(add wallet address)* |
-| 12 | *(add name)* | *(add wallet address)* |
-| 13 | *(add name)* | *(add wallet address)* |
-| 14 | *(add name)* | *(add wallet address)* |
-| 15 | *(add name)* | *(add wallet address)* |
-| 16 | *(add name)* | *(add wallet address)* |
-| 17 | *(add name)* | *(add wallet address)* |
-| 18 | *(add name)* | *(add wallet address)* |
-| 19 | *(add name)* | *(add wallet address)* |
-| 20 | *(add name)* | *(add wallet address)* |
-| 21 | *(add name)* | *(add wallet address)* |
-| 22 | *(add name)* | *(add wallet address)* |
-| 23 | *(add name)* | *(add wallet address)* |
+| 7 | Prachi sawant | GAEXD3KCFE3CBWDGSNQ5A624AMH74B4ONAEEF2QRUWHX6SOTTAVUGKRV |
+| 8 | Aniket uday Bhilare  | GDRTJRMXK43GQL5EE25QGULXYRVLJ646E5SCXRX376VMSLSSKSLWONM7 |
+| 9 | Digvijay khese | GAALPBO5ZA7JWNIR66F6CTJVC4MPEWOP7H7YUMRPMXNGZCMR4TPUAVGL |
+| 10 | Sarthak Dhere | GCRYPAQB3TFLQE727TA3R723QIEPTP5KCMP7OMH4HVXNLCEUKPD4AZJP |
+| 11 | Shubham Golekar  | GA3PMUXWSCWLT2FMQ76PODPODHLJHOWAHTD7JGOWHGGE5FZ3WWF6EJBO |
+| 12 | Saiprasad Shastre | GB6WPRQKU5SWASEIZQYV3JEBKTUN4LPKGLNJOPKGRDCLYXCVQUNT3GLK |
+| 13 | Harshal Jagdale | GCATAASNFHODIKA4VTIEZHONZB3BGZJL42FXHHZ3VS6YKX2PCDIJ3LDY |
+| 14 | Mansi Baban Sandbhor  | GBW4FMYCQRUPKKQDJKQWPEUNHV3V6MCDYI3AWHXPHTCX4VOKAUM6L655 |
+| 15 | Payal Shrikant Babar  | GA7IXJAO4NMPRXMQD4MTOZICZCSVK5KWWFGFR3GVQHGC4FNRLHHZMHKG |
+| 16 | Nishit Bhalerao  | GBLSGNNNFFIHR2745JID5AW42TAKULJ7VJWCQBHGUWQKCMCQWLGZ7PVN |
+| 17 | Vedang Bahirat  | GAYMWU2VTZC6646FV4M5753ZZUBIXZHSBLBOLTHBHCVFQIOBZH6D5W4H |
+| 18 | Shubhankar Bhenki  | GAAYHC2S4IY5V5DDS2TE5LPGWA5U3F6BGBETT5IIF2F6PY3RKZMUFJPK |
+| 19 | Dnyaneshwari Sable | GBGNYF44BFQRWS6GSF4Z4PPHCTGC7OUWWTSC2CJQL54BRFXAJGAKCE22 |
+| 20 | DIVYANSHU SINGH | GBM7TKBAHVUDY5UKS3VTJ55BYKUBGLGPT75FYUA2I2TQDHNNGUMVU4SL |
+| 21 | Samruddhi Nevse | GCWHSFPEKYG5OYYQT2M5VRRVM3LSCXACMBNKSZUTH7XCIUGQTGFDAYWD |
+| 22 | Soundarya Shastre | GCNIP42DW5CU5CHU26S77F2N7ZZBJ5FXKO7U3U7A5RWUFCWV6T3HJIK5 |
+| 23 | Shubham Shastre | GC7ZLZNLJA2DXKYOM7GDLUD5VGSZGY5ERKWAC53CJSKPGZCHQTX3U7TD |
+| 24 | Sarika Mane | GA7QLXBAQMIDBBJRSV3ONNDTCYNWFWXE3FMHFHMR66KT2NGBXB4JCHLN |
+| 25 | Ishani Pawar | GAIUMKCN72QK4TWISNYJURRMFPOT3PZT4G34NH6GCV7MJCG4TZT3TZZG |
+| 26 | Parth Pravin Padir | GD3AM7UTGZT6I5MAITKOOJTZGAVLECGY5P57ENXLRZ4NMZS3ELLECIYN |
+| 27 | Pooja Kohinkar  | GBA6423K3LTPDS2BOBQ7YKJYVTPPJQ52DWXMNUPT36EOGF257NITPNTL |
+| 28 | Samruddhi Bhagwat | GASSYYMLPMDX2WU5CMLZYFUUY5AYD7DTRLM7FHOGF7MFTY6SCT3C3TZ4 |
+| 29 | Shravani Tavhare | GBOECBQT3HY6NDB34QTDMN4G3HZNY4DEDWELDPVGIILIH4IO7KC4NNOX |
+| 30 | shwetta shindde | GAX4ZSLAEJ37HJFWBWZWV2PLN7MPYU4S7LWRPAFLXHDMSVSEJIQJVQIW |
+| 31 | Aarya Farke | GBWA66JFVGMC4KUVVL667D2XB2IG6NWVNYNLAFEMYESRBQCRUUJTUPOK |
 
 > All wallet addresses are verifiable on [Stellar Expert Testnet](https://stellar.expert/explorer/testnet)
 
@@ -273,7 +287,7 @@ Indexer updates local transaction index from Horizon
 
 ## 🐦 Community Contribution
 
-*(Add your Twitter/X post link here after posting)*
+https://x.com/JanhaviMane_04/status/2049688304766128232?s=20
 
 Post about SplitSave on Twitter tagging @StellarOrg
 
@@ -283,7 +297,7 @@ Post about SplitSave on Twitter tagging @StellarOrg
 
 - [x] Public GitHub repository
 - [x] Live demo on Netlify
-- [x] 30+ user wallet addresses *(23/30 — updating)*
+- [x] 30+ user wallet addresses 
 - [x] Advanced feature — Fee Sponsorship (gasless transactions)
 - [x] Metrics dashboard live
 - [x] Security checklist completed (30/31, 0 vulnerabilities)
@@ -292,8 +306,8 @@ Post about SplitSave on Twitter tagging @StellarOrg
 - [x] Full documentation
 - [x] Smart contract deployed on testnet
 - [x] Feedback form + Excel sheet
-- [ ] Community contribution (Twitter post)
-- [ ] 30/30 users onboarded
+- [x] Community contribution (Twitter post)
+- [x] 31/30 users onboarded
 - [x] Minimum 15+ meaningful commits
 
 ---
