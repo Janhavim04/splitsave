@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "overrides": {
+    "axios": "^1.8.2"
+  },
   "scripts": {
     "test": "vitest run",
     "dev": "vite",
