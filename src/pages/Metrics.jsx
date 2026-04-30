@@ -96,7 +96,7 @@ export default function Metrics() {
   const [tab, setTab]                 = useState('metrics')
 
   const days      = last7Days()
-  const userCount = 6
+  const userCount = 31
 
   const activeDays = new Set(activities.map(a => getDayKey(a.time))).size
 
@@ -264,12 +264,37 @@ export default function Metrics() {
             </div>
             <div className="metrics-users-table">
               {[
-                { name: 'Janhavi lipare',       address: 'GBLUMAX4IIPS54AIGD5WXRRAXISG4HLV3BE3YR3SQAD3GZSXRTVJY5GI' },
-                { name: 'Nayan Palande',         address: 'GB23T7JFBYK7URKZCRL5ZUYPA5W7JNJ5WYIGLJNWI6Y3YAFPYHJ65UPR' },
-                { name: 'Poorva Mulimani',       address: 'GBNOBRJ73DRVVHE4MJPDRIOVP3MZ7BHOO2ISZDMPJWDNHPCPVRZLRILT' },
-                { name: 'Jadhav Vaibhavi Ajay', address: 'GDBIJAOFPMGQWDUUQTJ3YFHI44MWHQHPALJQG7ZDA7D5WWEDKJYA4OHA' },
-                { name: 'Aditi Mhaske',          address: 'GAWOCI3JKKRFYYUJGOR7I3LZM6BMFCLUBN3EXBNLRISO6XWW3YDSTHDU' },
-                { name: 'Gayatri Deshmukh',      address: 'GBQQRG45YXIOLM7UR2W7DN2XP7SZVIDY4D5NWCUMRX7CEXJVVFGU26PB' },
+                { name: 'Janhavi Lipare',          address: 'GBLUMAX4IIPS54AIGD5WXRRAXISG4HLV3BE3YR3SQAD3GZSXRTVJY5GI' },
+{ name: 'Nayan Palande',           address: 'GB23T7JFBYK7URKZCRL5ZUYPA5W7JNJ5WYIGLJNWI6Y3YAFPYHJ65UPR' },
+{ name: 'Poorva Mulimani',         address: 'GBNOBRJ73DRVVHE4MJPDRIOVP3MZ7BHOO2ISZDMPJWDNHPCPVRZLRILT' },
+{ name: 'Jadhav Vaibhavi Ajay',    address: 'GDBIJAOFPMGQWDUUQTJ3YFHI44MWHQHPALJQG7ZDA7D5WWEDKJYA4OHA' },
+{ name: 'Aditi Mhaske',            address: 'GAWOCI3JKKRFYYUJGOR7I3LZM6BMFCLUBN3EXBNLRISO6XWW3YDSTHDU' },
+{ name: 'Gayatri Deshmukh',        address: 'GBQQRG45YXIOLM7UR2W7DN2XP7SZVIDY4D5NWCUMRX7CEXJVVFGU26PB' },
+{ name: 'Prachi Sawant',           address: 'GAEXD3KCFE3CBWDGSNQ5A624AMH74B4ONAEEF2QRUWHX6SOTTAVUGKRV' },
+{ name: 'Aniket Uday Bhilare',     address: 'GDRTJRMXK43GQL5EE25QGULXYRVLJ646E5SCXRX376VMSLSSKSLWONM7' },
+{ name: 'Digvijay Khese',          address: 'GAALPBO5ZA7JWNIR66F6CTJVC4MPEWOP7H7YUMRPMXNGZCMR4TPUAVGL' },
+{ name: 'Sarthak Dhere',           address: 'GCRYPAQB3TFLQE727TA3R723QIEPTP5KCMP7OMH4HVXNLCEUKPD4AZJP' },
+{ name: 'Shubham Golekar',         address: 'GA3PMUXWSCWLT2FMQ76PODPODHLJHOWAHTD7JGOWHGGE5FZ3WWF6EJBO' },
+{ name: 'Saiprasad Shastre',       address: 'GB6WPRQKU5SWASEIZQYV3JEBKTUN4LPKGLNJOPKGRDCLYXCVQUNT3GLK' },
+{ name: 'Harshal Jagdale',         address: 'GCATAASNFHODIKA4VTIEZHONZB3BGZJL42FXHHZ3VS6YKX2PCDIJ3LDY' },
+{ name: 'Mansi Baban Sandbhor',    address: 'GBW4FMYCQRUPKKQDJKQWPEUNHV3V6MCDYI3AWHXPHTCX4VOKAUM6L655' },
+{ name: 'Payal Shrikant Babar',    address: 'GA7IXJAO4NMPRXMQD4MTOZICZCSVK5KWWFGFR3GVQHGC4FNRLHHZMHKG' },
+{ name: 'Nishit Bhalerao',         address: 'GBLSGNNNFFIHR2745JID5AW42TAKULJ7VJWCQBHGUWQKCMCQWLGZ7PVN' },
+{ name: 'Vedang Bahirat',          address: 'GAYMWU2VTZC6646FV4M5753ZZUBIXZHSBLBOLTHBHCVFQIOBZH6D5W4H' },
+{ name: 'Shubhankar Bhenki',       address: 'GAAYHC2S4IY5V5DDS2TE5LPGWA5U3F6BGBETT5IIF2F6PY3RKZMUFJPK' },
+{ name: 'Dnyaneshwari Sable',      address: 'GBGNYF44BFQRWS6GSF4Z4PPHCTGC7OUWWTSC2CJQL54BRFXAJGAKCE22' },
+{ name: 'Divyanshu Singh',         address: 'GBM7TKBAHVUDY5UKS3VTJ55BYKUBGLGPT75FYUA2I2TQDHNNGUMVU4SL' },
+{ name: 'Samruddhi Nevse',         address: 'GCWHSFPEKYG5OYYQT2M5VRRVM3LSCXACMBNKSZUTH7XCIUGQTGFDAYWD' },
+{ name: 'Soundarya Shastre',       address: 'GCNIP42DW5CU5CHU26S77F2N7ZZBJ5FXKO7U3U7A5RWUFCWV6T3HJIK5' },
+{ name: 'Shubham Shastre',         address: 'GC7ZLZNLJA2DXKYOM7GDLUD5VGSZGY5ERKWAC53CJSKPGZCHQTX3U7TD' },
+{ name: 'Sarika Mane',             address: 'GA7QLXBAQMIDBBJRSV3ONNDTCYNWFWXE3FMHFHMR66KT2NGBXB4JCHLN' },
+{ name: 'Ishani Pawar',            address: 'GAIUMKCN72QK4TWISNYJURRMFPOT3PZT4G34NH6GCV7MJCG4TZT3TZZG' },
+{ name: 'Parth Pravin Padir',      address: 'GD3AM7UTGZT6I5MAITKOOJTZGAVLECGY5P57ENXLRZ4NMZS3ELLECIYN' },
+{ name: 'Pooja Kohinkar',          address: 'GBA6423K3LTPDS2BOBQ7YKJYVTPPJQ52DWXMNUPT36EOGF257NITPNTL' },
+{ name: 'Samruddhi Bhagwat',       address: 'GASSYYMLPMDX2WU5CMLZYFUUY5AYD7DTRLM7FHOGF7MFTY6SCT3C3TZ4' },
+{ name: 'Shravani Tavhare',        address: 'GBOECBQT3HY6NDB34QTDMN4G3HZNY4DEDWELDPVGIILIH4IO7KC4NNOX' },
+{ name: 'Shweta Shinde',           address: 'GAX4ZSLAEJ37HJFWBWZWV2PLN7MPYU4S7LWRPAFLXHDMSVSEJIQJVQIW' },
+{ name: 'Aarya Farke',             address: 'GBWA66JFVGMC4KUVVL667D2XB2IG6NWVNYNLAFEMYESRBQCRUUJTUPOK' },
               ].map((u, i) => (
                 <div key={i} className="metrics-user-row">
                   <span className="metrics-user-num">{i + 1}</span>
@@ -279,7 +304,6 @@ export default function Metrics() {
                   </a>
                 </div>
               ))}
-              {Array.from({ length: 30 - userCount }).map((_, i) => (
                 <div key={`empty-${i}`} className="metrics-user-row metrics-user-empty">
                   <span className="metrics-user-num">{userCount + i + 1}</span>
                   <span className="metrics-user-name">— pending onboarding</span>
