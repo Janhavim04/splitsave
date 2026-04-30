@@ -131,15 +131,7 @@ npm audit
 
 Result:
 ```
-2 moderate severity vulnerabilities
-
-- axios 1.0.0-1.14.0: NO_PROXY bypass + header injection (SSRF)
-- Source: transitive dependency via @stellar/stellar-sdk >=15.0.1
-- Fix: Not applied — npm audit fix --force would downgrade stellar-sdk (breaking change)
-- Mitigation: SplitSave does not use axios directly. All Stellar network calls
-  go through the official Horizon SDK. No user data is proxied through axios.
-  This will be resolved when @stellar/stellar-sdk releases a patched version.
-```
+found 0 vulnerabilities
 ```
 
 ---
